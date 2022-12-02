@@ -29,10 +29,20 @@ public class PostController {
     }
 
     @PostMapping(value = "/create")
-    public ResponseEntity<?> createPost(Post post){
+    public ResponseEntity<String> createPost(Post post){
         try{
             String msg = postService.createPost(post);
             return new ResponseEntity<String>(msg, HttpStatus.CREATED);
+        }catch(Exception e){
+            return new ResponseEntity<String>(e.getMessage(), HttpStatus.CONFLICT);
+        }
+    }
+
+    @GetMapping(value = "/checkBannedWords")
+    public ResponseEntity<?> checkBannedWords(String body){
+        try{
+            Boolean check = postService.checkBannedWords();
+            return new ResponseEntity<Boolean>(check, HttpStatus.OK);
         }catch(Exception e){
             return new ResponseEntity<String>(e.getMessage(), HttpStatus.CONFLICT);
         }
