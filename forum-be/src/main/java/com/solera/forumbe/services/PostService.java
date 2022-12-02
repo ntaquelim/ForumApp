@@ -16,6 +16,7 @@ public class PostService {
     private PostRepository postRepository;
 
     public Boolean titleCheck(String title) {
+        if(StringUtils.isBlank(title)) return false;
         for (Post post : PostRepository.posts) {
             if(post.getTitle().toUpperCase().equals(title.toUpperCase())) return false;
         }
