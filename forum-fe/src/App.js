@@ -5,6 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 import Home from './Pages/Home';
 import NewPost from './Pages/NewPost';
+import PostBodyForm from './Pages/PostBodyForm';
 
 
 function App() {
@@ -12,12 +13,9 @@ function App() {
     <BrowserRouter>
     <Routes>
       {/* Change to the component you are developing */}
-      
       <Route path="/" element={<Home />} /> 
       <Route path="NewPost" element={<NewPost />} />
-      <Route path="Passengers" element />
-      {/*<Route path="Seats" element={<Seats/>} />
-       <Route path="personal" element={} /> */}
+      <Route path="PostBodyForm" element={<PostBodyForm />}/>
       <Route path="Booking" element/>
       <Route path="Confirmation" element />
 
