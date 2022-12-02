@@ -31,6 +31,7 @@ public class PostService {
     }
 
     public Boolean checkBannedWords(String body) {
+        if(StringUtils.isBlank(body)) return false;
         for (String banned : PostRepository.bannedWords) {
             if(body.toUpperCase().contains(banned.toUpperCase())) return false;
         }
