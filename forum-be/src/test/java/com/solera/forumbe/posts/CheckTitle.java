@@ -12,7 +12,7 @@ import com.solera.forumbe.controllers.PostController;
 import com.solera.forumbe.entities.Post;
 
 @SpringBootTest
-public class PostTests {
+public class CheckTitle {
 
     @Autowired
     PostController postController;

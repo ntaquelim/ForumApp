@@ -6,6 +6,8 @@ import org.springframework.stereotype.Service;
 import com.solera.forumbe.entities.Post;
 import com.solera.forumbe.repositories.PostRepository;
 
+import io.micrometer.common.util.StringUtils;
+
 @Service
 public class PostService {
     
@@ -19,10 +21,20 @@ public class PostService {
         return true;
     }
 
-    public String createPost(Post post) {
+    public String createPost(Post post) throws Exception {
+        if(StringUtils.isBlank(post.getTitle()) || StringUtils.isBlank(post.getCategory()) ||
+        StringUtils.isBlank(post.getBody()) || StringUtils.isBlank(post.getImage())) throw new Exception("You can't have empty value!");
         Post newPost = new Post(post.getTitle(), post.getCategory(), post.getBody(), post.getImage());
         postRepository.save(newPost);
+        
         return "The post has been created succesfully!";
+    }
+
+    public Boolean checkBannedWords(String body) {
+        for (String banned : PostRepository.bannedWords) {
+            if(body.toUpperCase().contains(banned.toUpperCase())) return false;
+        }
+        return true;
     }
     
 }

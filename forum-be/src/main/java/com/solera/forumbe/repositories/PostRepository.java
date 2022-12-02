@@ -11,9 +11,9 @@ import com.solera.forumbe.entities.Post;
 public class PostRepository {
 
     public static List<Post> posts = new ArrayList<>();
+    public static final List<String> bannedWords = List.of("solera", "banned_word_1");
 
     public void save(Post post){
         posts.add(post);
     }
-    
 }
