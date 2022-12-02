@@ -19,7 +19,7 @@ public class HomePage {
     public static void setUp(){
          System.setProperty("webdriver.chrome.driver",
          "C:\\Users\\Andrea.Colucci\\selenium-java-4.6.0\\chromeDriver\\chromedriver_win32\\chromedriver.exe");
-        }
+    }
 
     @Test
     void homePage_ClickFirstButton_NewPostPage(){
