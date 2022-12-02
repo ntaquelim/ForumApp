@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,8 +14,6 @@ import com.solera.forumbe.entities.Post;
 import com.solera.forumbe.entities.ReturnBanned;
 import com.solera.forumbe.services.PostService;
 
-import jakarta.websocket.server.PathParam;
-
 @RestController
 @RequestMapping("/post")
 public class PostController {
@@ -23,7 +22,7 @@ public class PostController {
     private PostService postService;
 
     @GetMapping(value = "/checkTitle/{title}")
-    public ResponseEntity<?> titleCheck(@PathParam("title") String title){
+    public ResponseEntity<?> titleCheck(@PathVariable("title") String title){
         try{
             Boolean check = postService.titleCheck(title);
             return new ResponseEntity<Boolean>(check, HttpStatus.OK);
