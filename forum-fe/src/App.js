@@ -6,6 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Home from './Pages/Home';
 import NewPost from './Pages/NewPost';
 import PostBodyForm from './Pages/PostBodyForm';
+import Confirmation from './Pages/Confirmation';
 
 
 function App() {
@@ -16,8 +17,7 @@ function App() {
       <Route path="/" element={<Home />} /> 
       <Route path="NewPost" element={<NewPost />} />
       <Route path="PostBodyForm" element={<PostBodyForm />}/>
-      <Route path="Booking" element/>
-      <Route path="Confirmation" element />
+      <Route path="Confirmation" element={<Confirmation />} />
 
     </Routes>
   </BrowserRouter>
