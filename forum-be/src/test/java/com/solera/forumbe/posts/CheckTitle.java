@@ -24,7 +24,7 @@ public class CheckTitle {
     @Test
     void titlecheck_DataAlreadyPresent_ExpectedFalse(){
 
-        Post post = new Post("Title Test", "category Test", "Body Test", "Image Test");
+        Post post = new Post("Title Test", "category Test", "Body Test", "Image Test", true);
         postController.createPost(post);
 
         Boolean check = Boolean.parseBoolean(postController.titleCheck("Title Test").getBody().toString());

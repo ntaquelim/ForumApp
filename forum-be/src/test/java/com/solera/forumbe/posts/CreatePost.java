@@ -18,7 +18,7 @@ public class CreatePost {
 
     @Test
     void createPost_CorrectData_PostCreated(){
-        Post post = new Post("Correct title", "Correct category", "Correct body", "Correct image");
+        Post post = new Post("Correct title", "Correct category", "Correct body", "Correct image", true);
 
         int status = Integer.parseInt(postController.createPost(post).getStatusCode().toString().substring(0,3));
         assertEquals(201, status);
@@ -26,7 +26,7 @@ public class CreatePost {
 
     @Test
     void createPost_EmptyData_PostNotCreated(){
-        Post post = new Post("", "Correct category", "Correct body", "Correct image");
+        Post post = new Post("", "Correct category", "Correct body", "Correct image", false);
 
         ResponseEntity<String> response = postController.createPost(post);
         int status = Integer.parseInt(response.getStatusCode().toString().substring(0,3));
@@ -37,7 +37,7 @@ public class CreatePost {
 
     @Test
     void createPost_BlankData_PostNotCreated(){
-        Post post = new Post("Correct title", "   ", "Correct body", "Correct image");
+        Post post = new Post("Correct title", "   ", "Correct body", "Correct image", true);
 
         ResponseEntity<String> response = postController.createPost(post);
         int status = Integer.parseInt(response.getStatusCode().toString().substring(0,3));
@@ -49,7 +49,7 @@ public class CreatePost {
 
     @Test
     void createPost_NullData_PostNotCreated(){
-        Post post = new Post("Correct title", "Correct category", null, "Correct image");
+        Post post = new Post("Correct title", "Correct category", null, "Correct image", false);
 
         ResponseEntity<String> response = postController.createPost(post);
         int status = Integer.parseInt(response.getStatusCode().toString().substring(0,3));

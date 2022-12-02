@@ -24,7 +24,7 @@ public class PostService {
     public String createPost(Post post) throws Exception {
         if(StringUtils.isBlank(post.getTitle()) || StringUtils.isBlank(post.getCategory()) ||
         StringUtils.isBlank(post.getBody()) || StringUtils.isBlank(post.getImage())) throw new Exception("You can't have empty value!");
-        Post newPost = new Post(post.getTitle(), post.getCategory(), post.getBody(), post.getImage());
+        Post newPost = new Post(post.getTitle(), post.getCategory(), post.getBody(), post.getImage(), post.isForAnyone());
         postRepository.save(newPost);
         
         return "The post has been created succesfully!";

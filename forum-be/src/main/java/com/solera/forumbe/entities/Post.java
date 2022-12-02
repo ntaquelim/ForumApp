@@ -13,12 +13,14 @@ public class Post {
     private String category;
     private String body;
     private String image;
+    private boolean forAnyone;
 
-    public Post(String title, String category, String body, String image) {
+    public Post(String title, String category, String body, String image, Boolean forAnyone) {
         this.id = UUID.randomUUID().toString().substring(0,9);
         this.title = title;
         this.category = category;
         this.body = body;
         this.image = image;
+        this.forAnyone = forAnyone;
     }
 }
