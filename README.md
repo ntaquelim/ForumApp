@@ -1,3 +1,3 @@
 # ForumApp
 
-Members: Andrea Colucci, Nuno Joao Sousa
+Members: Andrea Colucci(backend), Nuno Joao Sousa(frontend)
