@@ -8,7 +8,6 @@ export default function MainForum(){
     
     const clickHandler = (event) =>{
         localStorage.setItem("currentThread",event.currentTarget.id );
-        console.log(localStorage.getItem("currentThread"));
         navigate('/NewPost')
     }
     
