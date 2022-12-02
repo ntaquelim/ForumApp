@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.solera.forumbe.entities.Post;
+import com.solera.forumbe.entities.ReturnBanned;
 import com.solera.forumbe.repositories.PostRepository;
 
 import io.micrometer.common.util.StringUtils;
@@ -30,12 +31,14 @@ public class PostService {
         return "The post has been created succesfully!";
     }
 
-    public Boolean checkBannedWords(String body) {
-        if(StringUtils.isBlank(body)) return false;
+    public ReturnBanned checkBannedWords(String body) {
+        if(StringUtils.isBlank(body)) return new ReturnBanned("Body is empty",false);
         for (String banned : PostRepository.bannedWords) {
-            if(body.toUpperCase().contains(banned.toUpperCase())) return false;
+            if(body.toUpperCase().contains(banned.toUpperCase())){
+                return new ReturnBanned(banned,false);
+            } 
         }
-        return true;
+        return new ReturnBanned("",true);
     }
     
 }

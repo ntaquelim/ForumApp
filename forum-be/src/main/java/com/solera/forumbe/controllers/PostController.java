@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.solera.forumbe.entities.Post;
+import com.solera.forumbe.entities.ReturnBanned;
 import com.solera.forumbe.services.PostService;
 
 import jakarta.websocket.server.PathParam;
@@ -44,8 +45,8 @@ public class PostController {
     @PostMapping(value = "/checkBannedWords")
     public ResponseEntity<?> checkBannedWords(@RequestBody String body){
         try{
-            Boolean check = postService.checkBannedWords(body);
-            return new ResponseEntity<Boolean>(check, HttpStatus.OK);
+            ReturnBanned check = postService.checkBannedWords(body);
+            return new ResponseEntity<ReturnBanned>(check, HttpStatus.OK);
         }catch(Exception e){
             return new ResponseEntity<String>(e.getMessage(), HttpStatus.CONFLICT);
         }
