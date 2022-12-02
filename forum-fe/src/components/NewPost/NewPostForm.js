@@ -1,5 +1,6 @@
-import BodyForm from "./BodyForm";
+
 import Title from "./Title";
+
 
 export default function NewPostForm(){
     return(
@@ -7,9 +8,7 @@ export default function NewPostForm(){
 
         <div> 
             <div><Title /></div>
-            <div><BodyForm /></div>
-            <div></div>
-            
+        
 
         </div>
     );

@@ -1,34 +1,37 @@
-import FloatingLabel from 'react-bootstrap/FloatingLabel';
-import React, { useRef } from "react";
+
+import React, { useRef, useState } from "react";
 import Form from 'react-bootstrap/Form';
 import pencil from './images/pencil.png';
 import question from './images/question.jpg';
 import speaker from './images/speaker.jpg';
 
-localStorage.setItem("source",question);
-
+let source = question;
 
 export default function BodyForm(){
+
+    var[state, setState] = useState(localStorage.getItem("source"))
 
   let imgHandler = (event) => {
     let radioId=event.currentTarget.id
     
     if(radioId==="1"){
-         localStorage.clear()
-         localStorage.setItem("source",question);
+        source=question;
+         return source;
     }
     
     if(radioId==="2"){
-        localStorage.clear()
-        localStorage.setItem("source",speaker)
-    }
+        source=speaker;
+        return source;}
     if(radioId==="3"){
-        localStorage.clear()
-        localStorage.setItem("source",pencil)
+        source=pencil;
+        return source;
      } 
 }
 
+ 
+
     return(
+        <>
         <Form>
            <div className="radioOption">
            <h5>Category</h5>
@@ -41,8 +44,9 @@ export default function BodyForm(){
             <Form.Control as="textarea" rows={3} maxLength={2000} placeholder="Max 2000 characters!"/>
            </div>
            <div>
-           <img id="image" src={localStorage.getItem("source")}></img>        
+           <img id="image" src={source}></img>        
            </div>
         </Form>
+        </>
     );
 }
