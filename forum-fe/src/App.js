@@ -1,7 +1,10 @@
 
 import './App.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
+
 import Home from './Pages/Home';
+import NewPost from './Pages/NewPost';
 
 
 function App() {
@@ -11,7 +14,7 @@ function App() {
       {/* Change to the component you are developing */}
       
       <Route path="/" element={<Home />} /> 
-      <Route path="Flights" element />
+      <Route path="NewPost" element={<NewPost />} />
       <Route path="Passengers" element />
       {/*<Route path="Seats" element={<Seats/>} />
        <Route path="personal" element={} /> */}
