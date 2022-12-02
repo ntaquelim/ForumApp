@@ -10,7 +10,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.ResponseEntity;
 
 import com.solera.forumbe.controllers.PostController;
-import com.solera.forumbe.entities.ReturnBanned;
 
 @SpringBootTest
 public class CheckBannedWords {
